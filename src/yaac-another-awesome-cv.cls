@@ -64,6 +64,7 @@
 \RequirePackage{fullpage}
 \RequirePackage[margin=1.5cm]{geometry}
 \RequirePackage{fontawesome}
+\RequirePackage{academicons}
 \RequirePackage{hyperref}
 \hypersetup{
      colorlinks=true,
@@ -188,7 +189,7 @@
 \newcommand{\locationSymbol}{\faMapMarker}
 \newcommand{\infoSymbol}{\faInfo}
 \newcommand{\linkedinSymbol}{\faLinkedin}
-\newcommand{\scholarSymbol}{\faGraduationCap}
+\newcommand{\scholarSymbol}{\aiGoogleScholar}
 \newcommand{\websiteSymbol}{\faGlobe}
 \newcommand{\viadeoSymbol}{\faViadeo}
 \newcommand{\mobileSymbol}{\faMobilePhone}
@@ -196,6 +197,7 @@
 \newcommand{\videoSymbol}{\faVideoCamera}
 \newcommand{\commitSymbol}{\faCodeFork}
 \newcommand{\linkSymbol}{\faLink}
+\newcommand{\arxivSymbol}{\aiarXiv}
 
 \newcommand\link[2]{\color{linkcolor}\href{#1}{#2}\color{Black} }
 \newcommand\important[1]{\textbf #1}
