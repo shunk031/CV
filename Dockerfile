@@ -11,7 +11,8 @@ RUN \
     algorithms \
     collection-luatex \
     fontawesome \
-    tracklang
+    tracklang \
+    academicons
 
 WORKDIR /workdir
 
