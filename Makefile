@@ -5,7 +5,7 @@ cv.pdf:
 	cd src && latexmk -quiet
 
 watch:
-	find src -path '*.tex' | entr make cv.pdf
+	find src -path '*.tex' -or -path '*.cls' | entr make cv.pdf
 
 clean:
 	cd src && latexmk -c
