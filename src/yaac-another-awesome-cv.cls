@@ -198,6 +198,7 @@
 \newcommand{\commitSymbol}{\faCodeFork}
 \newcommand{\linkSymbol}{\faLink}
 \newcommand{\arxivSymbol}{\aiarXiv}
+\newcommand{\journalSymbol}{\faNewspaperO}
 
 \newcommand\link[2]{\color{linkcolor}\href{#1}{#2}\color{Black} }
 \newcommand\important[1]{\textbf #1}
