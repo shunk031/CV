@@ -1,0 +1,51 @@
+% !TEX TS-program = luatex
+% Awesome Source CV LaTeX Template
+%
+% Author:
+% Christophe Roger (Darwiin)
+% 
+% Modified by:
+% Sebastin Santy
+% This template has been downloaded from:
+% https://github.com/SebastinSanty/Just-Another-Research-CV
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+\documentclass[localFont,alternative]{yaac-another-awesome-cv}
+\usepackage[en-US]{datetime2}
+
+\name{Shunsuke}{Kitada}
+\tagline{PhD student in Engineering, Hosei University}
+\photo{2cm}{uwseal}
+\socialinfo{
+    \website{shunk031.me}
+	\email{shunsuke.kitada.0831 at gmail.com}
+	\github{shunk031}
+	\scholar{https://scholar.google.co.jp/citations?user=GUzGhQIAAAAJ&hl=en}
+	\address{Room S603, 3-7-2 Kajino-cho, Koganei-shi, 184-8584, Tokyo, Japan}
+	\vspace{-3mm}
+}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+
+\begin{document}
+	\makecvheader
+    \DTMlangsetup{showdayofmonth=false}
+	\makecvfooter
+		{\textsc{\selectlanguage{english}\today}}
+		{\textsc{Shunsuke Kitada}}
+		{\thepage}
+
+    \input{sections/0_education}
+	\input{sections/3_projects}
+    \input{sections/1_publications}
+    \input{sections/2_experience}
+	\input{sections/talks}
+	\input{sections/awards}
+	\input{sections/teaching}
+	%\input{sections/opensource}
+	\input{sections/service}
+    %\input{sections/references} 
+
+\end{document}
