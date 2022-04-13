@@ -3,19 +3,19 @@ name: Build docker image
 on:
   push:
     paths:
-      - ".github/workflows/**"
+      - ".github/workflows/build_docker_image.yaml"
       - Dockerfile
 
   pull_request:
     paths:
-      - ".github/workflows/**"
+      - ".github/workflows/build_docker_image.yaml"
       - Dockerfile
 
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: bash-language-server
+      IMAGE_NAME: lualatex-for-my-cv
 
     steps:
       - name: Checkout
