@@ -1,0 +1,33 @@
+name: Build and release pdf
+
+on:
+  push:
+    paths:
+      - ".github/workflows/release_pdf.yaml"
+      - "./src/**"
+
+  pull_request:
+    paths:
+      - ".github/workflows/release_pdf.yaml"
+      - "./src/**"
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+
+      - name: Build pdf
+        env:
+          IMAGE: ghcr.io/shunk031/lualatex-for-my-cv:latest
+        run: |
+          docker run --rm -v $(pwd):/workdir  ${IMAGE} make cv.pdf && ls
