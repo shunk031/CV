@@ -17,7 +17,7 @@ jobs:
           echo "v-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)" > TAG_NAME
           git tag $(cat TAG_NAME)
           git push origin $(cat TAG_NAME)
-          echo "::set-output name=tag-name::$(cat TAG_NAME)"
+          echo "::set-output name=release_tag::$(cat TAG_NAME)"
           
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -38,6 +38,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tag_name: ${{ steps.tag.outputs.release_tag }}
           files: ./output/cv.pdf
           draft: false
           prerelease: false
