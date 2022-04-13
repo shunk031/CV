@@ -24,7 +24,7 @@ jobs:
         env:
           IMAGE: ghcr.io/shunk031/lualatex-for-my-cv:latest
         run: |
-          docker run --rm -v $(pwd):/workdir  ${IMAGE} make cv.pdf
+          docker run --rm -v $(pwd):/workdir ${IMAGE} make cv.pdf
 
       - name: Create Release & upload asset
         id: create_release-upload_assets
