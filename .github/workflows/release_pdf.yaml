@@ -2,17 +2,11 @@ name: Build and release pdf
 
 on:
   push:
-    paths:
-      - ".github/workflows/release_pdf.yaml"
-      - "./src/**"
-
-  pull_request:
-    paths:
-      - ".github/workflows/release_pdf.yaml"
-      - "./src/**"
+    tags:
+      - 'v*-*'
 
 jobs:
-  build_and_push:
+  build_and_release:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,4 +24,14 @@ jobs:
         env:
           IMAGE: ghcr.io/shunk031/lualatex-for-my-cv:latest
         run: |
-          docker run --rm -v $(pwd):/workdir  ${IMAGE} make cv.pdf && ls
+          docker run --rm -v $(pwd):/workdir  ${IMAGE} make cv.pdf
+
+      - name: Create Release & upload asset
+        id: create_release-upload_assets
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: ./output/cv.pdf
+          draft: false
+          prerelease: false
