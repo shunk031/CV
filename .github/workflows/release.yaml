@@ -25,7 +25,7 @@ jobs:
           YML: .devcontainer/docker-compose.yml
         run: |
           docker-compose -f ${YML} up -d
-          docker-compose -f ${YML} exec ${APP} make cv.pdf
+          docker-compose -f ${YML} exec -T ${APP} make cv.pdf
 
       - name: Create Git Tag
         id: tag
