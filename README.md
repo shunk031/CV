@@ -2,6 +2,8 @@
 
 [![Release](https://github.com/shunk031/CV/actions/workflows/release.yaml/badge.svg)](https://github.com/shunk031/CV/actions/workflows/release.yaml) [![Build docker image](https://github.com/shunk031/CV/actions/workflows/build_docker_image.yaml/badge.svg)](https://github.com/shunk031/CV/actions/workflows/build_docker_image.yaml)
 
+This CV is forked from [Just Another Research CV](https://github.com/SebastinSanty/Just-Another-Research-CV).
+
 ## Recommended: develop inside a container with VSCode
 
 - Opening this repository will automatically start devcontainer
@@ -11,24 +13,26 @@
 - (Optional) Build image
 
 ```shell
-docker build -t latex-for-my-resume .
+export APP=lualatex-for-my-cv
+export YML=.devcontainer/docker-compose.yml
+
+docker-compose -f ${YML} up -d
 ```
 
 - Build cv.pdf
 
 ```shell
-docker run --rm -it -v $(pwd):/workdir ghcr.io/shunk031/lualatex-for-my-cv:latest make cv.pdf
+docker-compose -f ${YML} exec -T ${APP} make cv.pdf
 ```
 
 - Clean up files
 
 ```shell
-docker run --rm -it -v $(pwd):/workdir ghcr.io/shunk031/lualatex-for-my-cv:latest make clean
+docker-compose -f ${YML} exec -T ${APP} make clean
 ```
 
 - Reflect changes in real time
 
 ```shell
-docker run --rm -it -v $(pwd):/workdir ghcr.io/shunk031/lualatex-for-my-cv:latest make watch
+docker-compose -f ${YML} exec -T ${APP} make watch
 ```
-
