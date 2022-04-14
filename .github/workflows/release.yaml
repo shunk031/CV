@@ -29,9 +29,11 @@ jobs:
 
       - name: Build PDF
         env:
-          IMAGE: ghcr.io/shunk031/lualatex-for-my-cv:latest
+          APP: lualatex-for-my-cv
+          YML: .devcontainer/docker-compose.yml
         run: |
-          docker run --rm -v $(pwd):/workdir ${IMAGE} make cv.pdf
+          docker-compose -f ${YML} start ${APP}
+          docker-compose -f ${YML} exec ${APP} make cv.pdf
 
       - name: Create Release & upload asset
         uses: softprops/action-gh-release@v1
