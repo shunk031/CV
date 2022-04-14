@@ -1,0 +1,10 @@
+version: '3'
+services:
+  lualatex-for-my-cv:
+    build: .
+    command: sleep infinity
+    volumes:
+      - ../:/workdir
+      - ./.latexmkrc:/root/.latexmkrc
+    environment:
+      SHELL: "/bin/bash"
