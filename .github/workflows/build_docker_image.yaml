@@ -4,12 +4,12 @@ on:
   push:
     paths:
       - ".github/workflows/build_docker_image.yaml"
-      - Dockerfile
+      - ".devcontainer/Dockerfile"
 
   pull_request:
     paths:
       - ".github/workflows/build_docker_image.yaml"
-      - Dockerfile
+      - ".devcontainer/Dockerfile"
 
 jobs:
   build_and_push:
