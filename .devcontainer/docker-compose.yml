@@ -1,0 +1,11 @@
+version: '3'
+services:
+  lualatex-for-my-cv:
+    image: ghcr.io/shunk031/lualatex-for-my-cv:latest
+    # build: .
+    command: sleep infinity
+    volumes:
+      - ../:/workdir
+      - ./.latexmkrc:/root/.latexmkrc
+    environment:
+      SHELL: "/bin/bash"
