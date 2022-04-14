@@ -1,18 +1,34 @@
+# LaTeX Files for My Curriculum Vitae
+
+[![Release](https://github.com/shunk031/CV/actions/workflows/release.yaml/badge.svg)](https://github.com/shunk031/CV/actions/workflows/release.yaml) [![Build docker image](https://github.com/shunk031/CV/actions/workflows/build_docker_image.yaml/badge.svg)](https://github.com/shunk031/CV/actions/workflows/build_docker_image.yaml)
+
+## Recommended: develop inside a container with VSCode
+
+- Opening this repository will automatically start devcontainer
+
+## Develop in a local environment with Docker
+
+- (Optional) Build image
+
 ```shell
 docker build -t latex-for-my-resume .
 ```
 
-```shell
-docker run --rm -it -v $(pwd):/workdir latex-for-my-resume make cv.pdf
-```
+- Build cv.pdf
 
 ```shell
-docker run --rm -it -v $(pwd):/workdir latex-for-my-resume make clean
+docker run --rm -it -v $(pwd):/workdir ghcr.io/shunk031/lualatex-for-my-cv:latest make cv.pdf
 ```
 
-## Update the CV
+- Clean up files
 
 ```shell
-docker run --rm -it -v $(pwd):/workdir latex-for-my-resume make watch
+docker run --rm -it -v $(pwd):/workdir ghcr.io/shunk031/lualatex-for-my-cv:latest make clean
 ```
-Then, attach the container through VSCode.
+
+- Reflect changes in real time
+
+```shell
+docker run --rm -it -v $(pwd):/workdir ghcr.io/shunk031/lualatex-for-my-cv:latest make watch
+```
+
