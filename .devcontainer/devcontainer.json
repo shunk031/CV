@@ -6,6 +6,7 @@
 	"extensions": [
 		"formulahendry.terminal",
 		"james-yu.latex-workshop",
+		"ms-azuretools.vscode-docker",
 	],
 	"service": "lualatex-for-my-cv",
 	"workspaceFolder": "/workdir",
