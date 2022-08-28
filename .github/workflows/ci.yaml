@@ -1,9 +1,7 @@
-name: Release
+name: CI
  
 on:
   push:
-    branches:
-      - master
     paths-ignore:
       - 'README.md'
 
@@ -30,6 +28,7 @@ jobs:
           docker-compose -f ${YML} exec -T ${APP} make cv.pdf
 
       - name: Create Git Tag
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         id: tag
         run: |
           echo "v-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)" > TAG_NAME
@@ -38,6 +37,7 @@ jobs:
           echo "::set-output name=release_tag::$(cat TAG_NAME)"
 
       - name: Create Release & upload asset
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
