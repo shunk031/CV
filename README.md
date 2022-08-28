@@ -1,6 +1,7 @@
 # LaTeX Files for My Curriculum Vitae
 
 [![CI](https://github.com/shunk031/CV/actions/workflows/ci.yaml/badge.svg)](https://github.com/shunk031/CV/actions/workflows/ci.yaml) [![Build docker image](https://github.com/shunk031/CV/actions/workflows/build_docker_image.yaml/badge.svg)](https://github.com/shunk031/CV/actions/workflows/build_docker_image.yaml)
+[![Download latest CV](https://img.shields.io/badge/Download%20the%20latest%20CV-pdf-blue.svg)](https://github.com/shunk031/cv/releases/latest/download/cv.pdf)
 
 This CV is forked from [Just Another Research CV](https://github.com/SebastinSanty/Just-Another-Research-CV).
 
