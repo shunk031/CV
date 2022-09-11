@@ -32,7 +32,7 @@ docker-compose -f ${YML} exec -T ${APP} make cv.pdf
 docker-compose -f ${YML} exec -T ${APP} make clean
 ```
 
-- Reflect changes in real time
+- Reflect changes in real-time
 
 ```shell
 docker-compose -f ${YML} exec -T ${APP} make watch
