@@ -14,26 +14,23 @@ This CV is forked from [Just Another Research CV](https://github.com/SebastinSan
 - (Optional) Build image
 
 ```shell
-export APP=lualatex-for-my-cv
-export YML=.devcontainer/docker-compose.yml
-
-docker-compose -f ${YML} up -d
+make docker-compose-up
 ```
 
 - Build cv.pdf
 
 ```shell
-docker-compose -f ${YML} exec -T ${APP} make cv.pdf
+make docker-compose-make-pdf
 ```
 
 - Clean up files
 
 ```shell
-docker-compose -f ${YML} exec -T ${APP} make clean
+make docker-compose-make-clean
 ```
 
 - Reflect changes in real-time
 
 ```shell
-docker-compose -f ${YML} exec -T ${APP} make watch
+make docker-compose-make-watch
 ```
