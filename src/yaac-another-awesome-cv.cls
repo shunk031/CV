@@ -67,16 +67,16 @@
 \RequirePackage{academicons}
 \RequirePackage{hyperref}
 \hypersetup{
-     colorlinks=true,
-     linkcolor=linkcolor,
-     filecolor=linkcolor,
-     citecolor = black,      
-     urlcolor=linkcolor,
-     }
+  colorlinks=true,
+  linkcolor=linkcolor,
+  filecolor=linkcolor,
+  citecolor = black,
+  urlcolor=linkcolor,
+}
 \RequirePackage{titlesec}
 \RequirePackage{array}
 \RequirePackage{enumitem}
-\RequirePackage{longtable} 	
+\RequirePackage{longtable}
 \RequirePackage{etoolbox}
 \RequirePackage{tikz}
 \RequirePackage[skins]{tcolorbox}
@@ -144,8 +144,8 @@
 \titlespacing{\section}{0pt}{2pt}{2pt}
 
 % Configure list
-\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=1.2em} 
-\setlist[itemize,2]{label=\faAngleRight, nosep, leftmargin=2em} 
+\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=1.2em}
+\setlist[itemize,2]{label=\faAngleRight, nosep, leftmargin=2em}
 
 % Setup Array : new column type
 \newcolumntype{R}[1]{>{\hfill}m{#1}}
@@ -160,20 +160,20 @@
 % Define font to use according to localFont option
 \ifundef{\@local}
 {
-%   \setmainfont{GentiumBasic-Regular}[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]
-  
+  %   \setmainfont{GentiumBasic-Regular}[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]
+
   \setmainfont{GentiumBasic-Regular}[
-    Path = fonts/, 
-    BoldFont = GentiumBasic-Bold, 
+    Path = fonts/,
+    BoldFont = GentiumBasic-Bold,
     ItalicFont = GentiumBasic-Italic]
-%   \setmainfont{Source Sans Pro Light}[
-%     BoldFont = SourceSansPro-Regular, 
-%     ItalicFont= Source Sans Pro Light Italic]
+  %   \setmainfont{Source Sans Pro Light}[
+  %     BoldFont = SourceSansPro-Regular, 
+  %     ItalicFont= Source Sans Pro Light Italic]
 }
 {
   \setmainfont{GentiumBasic-Regular}[
-    Path = fonts/, 
-    BoldFont = GentiumBasic-Bold, 
+    Path = fonts/,
+    BoldFont = GentiumBasic-Bold,
     ItalicFont = GentiumBasic-Italic]
 }
 
@@ -259,7 +259,7 @@
 
 % Render author's viadeo(optional)
 % Usage: \viadeo{<viadeo-nick>}
-\newcommand*{\viadeo}[1]{\sociallink{\viadeoSymbol}{http://www.viadeo.com/fr/profile/#1}{viadeo.com/fr/profile/#1}} 
+\newcommand*{\viadeo}[1]{\sociallink{\viadeoSymbol}{http://www.viadeo.com/fr/profile/#1}{viadeo.com/fr/profile/#1}}
 
 % Render author's github (optional)
 % Usage: \github{<github-nick>}
@@ -275,22 +275,22 @@
 
 % Render author's mobile phone (optional)
 % Usage: \smartphone{<mobile phone number>}
-\newcommand*\smartphone[1]{\socialtext{\mobileSymbol}{#1}}    
+\newcommand*\smartphone[1]{\socialtext{\mobileSymbol}{#1}}
 
 % Render author's tagline
 \newcommand\resumetitle[1]{
   \ifundef{\@alternative}{
-	 \par{
-	 	 \bigskip\center{\Large \color{accentcolor}\textbf{#1}\color{Black}}\par
-	 }
-	 \bigskip
+    \par{
+      \bigskip\center{\Large \color{accentcolor}\textbf{#1}\color{Black}}\par
+    }
+    \bigskip
   }{
     \color{accentcolor}\textbf{\large{#1}}\color{black}
   }
 }
 
 \newcommand\idphoto{
-  \tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
+\tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
 }
 
 % Define social entries to print in header
@@ -299,44 +299,44 @@
 % Render CV header
 % Needs \@firstname, \@lastname and \@tagline to be defined
 \newcommand*{\makecvheader}{
-  \ifundef{\@alternative}{
-    \ifundef{\@photodiameter}{
-      \begin{minipage}{\linewidth}
-    }{
-      \begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
-    }
-    \color{accentcolor}\user{\@firstname}{\@lastname}\color{black}\\
-    \small{\@socialinfo}
-    \end{minipage}
-    \ifdef{\@photodiameter}{
-      \begin{minipage}{\@photodiameter}
-        \idphoto
-      \end{minipage}
-    }{}
-    \resumetitle{\@tagline}
-  }{
-    % \ifundef{\@photodiameter}{
-    %   \begin{minipage}{\linewidth}
-    % }{
-    %   \begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
-    % }
-    \begin{center}
-    \user{\@firstname}{\@lastname}\\
-    \vskip 0.2cm
-    \resumetitle{\@tagline}
-    \smallskip\\
-    \small{\@socialinfo}
-    
-    \end{center}
-    % \end{minipage}
-    % \ifdef{\@photodiameter}{
-    %   \begin{minipage}{\@photodiameter}
-    %     \idphoto
-    %   \end{minipage}
-    % }
-    {}
-    \bigskip
+\ifundef{\@alternative}{
+\ifundef{\@photodiameter}{
+\begin{minipage}{\linewidth}
+}{
+\begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
   }
+  \color{accentcolor}\user{\@firstname}{\@lastname}\color{black}\\
+  \small{\@socialinfo}
+\end{minipage}
+\ifdef{\@photodiameter}{
+  \begin{minipage}{\@photodiameter}
+    \idphoto
+  \end{minipage}
+}{}
+\resumetitle{\@tagline}
+}{
+% \ifundef{\@photodiameter}{
+%   \begin{minipage}{\linewidth}
+% }{
+%   \begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
+% }
+\begin{center}
+  \user{\@firstname}{\@lastname}\\
+  \vskip 0.2cm
+  \resumetitle{\@tagline}
+  \smallskip\\
+  \small{\@socialinfo}
+
+\end{center}
+% \end{minipage}
+% \ifdef{\@photodiameter}{
+%   \begin{minipage}{\@photodiameter}
+%     \idphoto
+%   \end{minipage}
+% }
+{}
+\bigskip
+}
 }
 
 % Define a footer for CV
@@ -355,15 +355,15 @@
 \newenvironment{keywords}{%
   \renewcommand{\arraystretch}{1.1}
 
-  \begin{tabular}{>{}r>{}p{13cm}} 
-}{%
+  \begin{tabular}{>{}r>{}p{13cm}}
+    }{%
   \end{tabular}
 }
 
 % Render a scholarshipentry in the scolarship environment
 % Usage: \scholarshipentry{<date>}{<description>}
 \newcommand\keywordsentry[2]{
-  \textbf{#1} &   #2\\ 
+  \textbf{#1} &   #2\\
 }
 
 % Define a new column type for the scholarship environment
@@ -372,7 +372,7 @@
 % Define the 'scholarship' environment
 \newenvironment{scholarship}{%
   \begin{tabular}{Y p{\rightcolumnlength}}
-}{%
+    }{%
   \end{tabular}
 }
 
@@ -385,7 +385,7 @@
 % Define the 'skills' environment
 \newenvironment{skills}{%
   \begin{longtable}{R{\leftcolumn}p{\rightcolumnlength}}
-}{%
+    }{%
   \end{longtable}
 }
 
@@ -400,7 +400,7 @@
 % Define the 'experiences' environment
 \newenvironment{experiences}{%
   \begin{longtable}{R{\leftcolumn}|E}
-}{%
+    }{%
   \end{longtable}
 }
 
@@ -415,17 +415,17 @@
 \newcommand\experience[7]{
   \textbf{#1}    & \textbf{#2}   								\\*
   \textbf{#5}    & \begin{minipage}[t]{\rightcolumnlength}
-  					         #6
-                   \end{minipage}										\\*
-                 & \footnotesize{\foreach \n in {#7}{\cvtag{\n}}} 	\\
-  }
-  
+    #6
+  \end{minipage}										\\*
+  & \footnotesize{\foreach \n in {#7}{\cvtag{\n}}} 	\\
+}
+
 \newcommand\researchexperience[6]{
   \textbf{#1}    & \textbf{#2}  \hfill  \textbf{#3}							\\*
   \textbf{#5}    & \begin{minipage}[t]{\rightcolumnlength}
-  					         #6
-                   \end{minipage}										\\*
-  }
+    #6
+  \end{minipage}										\\*
+}
 % Render a consultant experience in the experiences environment
 % Usage: 
 % \consultantexperience
@@ -438,31 +438,31 @@
 \newcommand\consultantexperience[9]{
   \textbf{#1}    & \textbf{#2, \textsc{#3}, #4}   								\\*
   \textbf{#5}    & \emph{#6} pour \textsc{#7}                       				\\*
-  				       & 	\begin{minipage}[t]{\rightcolumnlength}
-  						        #8
-                   	\end{minipage}										\\*
-                 & \footnotesize{\foreach \n in {#9}{\cvtag{\n}}} 	\\
-  }
+  & 	\begin{minipage}[t]{\rightcolumnlength}
+    #8
+  \end{minipage}										\\*
+  & \footnotesize{\foreach \n in {#9}{\cvtag{\n}}} 	\\
+}
 
 \newcommand\emptySeparator{\multicolumn{2}{c}{}\\}
 
 \newenvironment{educations}{%
   \begin{longtable}{R{\leftcolumn}|E}
-}{%
+    }{%
   \end{longtable}
 }
 
 \newcommand\education[6]{
   \textbf{#1}    & \textbf{#2} \hfill \textbf{#3}   					\\*
   \textbf{#5}    & \begin{minipage}[t]{\rightcolumnlength}
-  					         #6
-                   \end{minipage}										\\*
-  }
+    #6
+  \end{minipage}										\\*
+}
 
 % Define the 'projects' environment
 \newenvironment{projects}{%
   \begin{longtable}{l}
-}{%
+    }{%
   \end{longtable}
 }
 
@@ -507,7 +507,7 @@
 
 \newenvironment{talks}{%
   \begin{longtable}{l}
-}{%
+    }{%
   \end{longtable}
 }
 
@@ -540,7 +540,7 @@
     \textbf{#1}\textbf{#3} ~ #4
     % \textbf{#3}
     % \smallskip \vspace{-0.8mm}\\
-    
+
     % \vspace{-0.3mm}
     % \noindent
     % #3\\
@@ -575,7 +575,7 @@
 
 \newenvironment{courses}{%
   \begin{longtable}{l}
-}{%
+    }{%
   \end{longtable}
 }
 
@@ -588,7 +588,7 @@
 
 \newenvironment{publications}{%
   \begin{longtable}{ll}
-}{%
+    }{%
   \end{longtable}
 }
 
@@ -600,7 +600,7 @@
 
 \newcommand\publication[6]{
   \textbf{\small [#6]} & \begin{minipage}[t]{\dimexpr(\linewidth) - 4em}
-   \textbf{#1} {#2} \\ {#3} \\ \textit{ #5} \enspace { \ifthenelse{\isempty{#4}} {} {\hfill \small{\lbrack\textbf{{#4}}\rbrack}}} \vspace{2mm}
+    \textbf{#1} {#2} \\ {#3} \\ \textit{ #5} \enspace { \ifthenelse{\isempty{#4}} {} {\hfill \small{\lbrack\textbf{{#4}}\rbrack}}} \vspace{2mm}
   \end{minipage}
   \\*
 }
@@ -614,7 +614,7 @@
   \begin{minipage}[t]{\dimexpr(\linewidth/2) - 3em}
     #2
   \end{minipage}
-  }
+}
 
 % Define the 'referencees' environment
 \newenvironment{referees}{%
@@ -626,10 +626,10 @@
   \hspace{1em}
   \begin{minipage}[t]{\dimexpr(\linewidth/4) - 1em}
     \begin{tabular}{>{}l >{}l}
-      \multicolumn{2}{l}{\textbf{#1}}\\
-      \multicolumn{2}{l}{\emph{#2}}\\
-      \multicolumn{2}{l}{\textsc{#3}}\\
-        \href{mailto:#4}{#4}\\
+      \multicolumn{2}{l}{\textbf{#1}} \\
+      \multicolumn{2}{l}{\emph{#2}}   \\
+      \multicolumn{2}{l}{\textsc{#3}} \\
+      \href{mailto:#4}{#4}            \\
     \end{tabular}
   \end{minipage}%
 }
