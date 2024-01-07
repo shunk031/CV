@@ -12,7 +12,7 @@ RUN cpanm \
     File::HomeDir \
     YAML::Tiny
 
-RUN wget https://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh \
+RUN curl -LO https://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh \
     && chmod +x update-tlmgr-latest.sh \
     && ./update-tlmgr-latest.sh
 
