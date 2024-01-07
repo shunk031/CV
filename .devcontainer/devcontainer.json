@@ -3,11 +3,15 @@
 {
 	"name": "lualatex-for-my-cv",
 	"dockerComposeFile": "docker-compose.yml",
-	"extensions": [
-		"formulahendry.terminal",
-		"james-yu.latex-workshop",
-		"ms-azuretools.vscode-docker",
-	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"formulahendry.terminal",
+				"james-yu.latex-workshop",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
 	"service": "lualatex-for-my-cv",
 	"workspaceFolder": "/workdir",
 	"shutdownAction": "stopCompose"
