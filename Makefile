@@ -29,13 +29,13 @@ docker-compose-down:
 	docker-compose -f $(YML) down
 
 .PHONY: docker-compose-make-pdf
-docker-compose-make-pdf:
+docker-compose-make-pdf: docker-compose-up
 	docker-compose -f $(YML) exec -T $(APP) make cv.pdf
 
 .PHONY: docker-compose-make-clean
-docker-compose-make-clean:
+docker-compose-make-clean: docker-compose-up
 	docker-compose -f $(YML) exec -T $(APP) make clean
 
 .PHONY: docker-compose-make-watch
-docker-compose-make-watch:
+docker-compose-make-watch: docker-compose-up
 	docker-compose -f $(YML) exec -T $(APP) make watch
