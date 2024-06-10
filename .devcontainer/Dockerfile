@@ -1,12 +1,12 @@
-FROM --platform=linux/amd64 paperist/texlive-ja:alpine
+FROM paperist/texlive-ja:debian
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     make \
     entr \
-    gcc \
-    perl-dev \
-    perl-app-cpanminus
+    curl \
+    cpanminus && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN cpanm \
     File::HomeDir \
