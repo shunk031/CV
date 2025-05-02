@@ -20,12 +20,8 @@ jobs:
           password: ${{ secrets.CR_PAT }}
 
       - name: Build PDF
-        env:
-          APP: lualatex-for-my-cv
-          YML: .devcontainer/docker-compose.yml
         run: |
-          docker-compose -f ${YML} up -d
-          docker-compose -f ${YML} exec -T ${APP} make cv.pdf
+          make docker-compose-make-pdf
 
       - name: Create Git Tag
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'

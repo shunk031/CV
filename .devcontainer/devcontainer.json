@@ -6,9 +6,9 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"formulahendry.terminal",
 				"james-yu.latex-workshop",
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"kimgronqvist.vscode-ido"
 			]
 		}
 	},

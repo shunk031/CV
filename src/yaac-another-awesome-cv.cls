@@ -605,6 +605,34 @@
   \\*
 }
 
+% Two-pass implementation for automatic reverse numbering
+\usepackage{totcount}
+
+% Define counters for each category
+\newcounter{ijcounter}
+\newcounter{iccounter}
+\newcounter{dccounter}
+
+% Register the counters with totcount package
+\regtotcounter{ijcounter}
+\regtotcounter{iccounter}
+\regtotcounter{dccounter}
+
+% First pass: Count publications by category
+\newcommand{\ijpublication}[5]{
+  \stepcounter{ijcounter}
+  \publication{#1}{#2}{#3}{#4}{#5}{IJ.\the\numexpr\totvalue{ijcounter}-\value{ijcounter}+1\relax}
+}
+
+\newcommand{\icpublication}[5]{
+  \stepcounter{iccounter}
+  \publication{#1}{#2}{#3}{#4}{#5}{IC.\the\numexpr\totvalue{iccounter}-\value{iccounter}+1\relax}
+}
+
+\newcommand{\dcpublication}[5]{
+  \stepcounter{dccounter}
+  \publication{#1}{#2}{#3}{#4}{#5}{DC.\the\numexpr\totvalue{dccounter}-\value{dccounter}+1\relax}
+}
 
 \newcommand*\twocolumnsection[2]{
   \begin{minipage}[t]{\dimexpr(\linewidth/2) - 3em}
