@@ -22,20 +22,20 @@ watch:
 
 .PHONY: docker-compose-up
 docker-compose-up:
-	docker-compose -f $(YML) up -d
+	docker compose -f $(YML) up -d
 
 .PHONY: docker-compose-down
 docker-compose-down:
-	docker-compose -f $(YML) down
+	docker compose -f $(YML) down
 
 .PHONY: docker-compose-make-pdf
 docker-compose-make-pdf: docker-compose-up
-	docker-compose -f $(YML) exec -T $(APP) make cv.pdf
+	docker compose -f $(YML) exec -T $(APP) make cv.pdf
 
 .PHONY: docker-compose-make-clean
 docker-compose-make-clean: docker-compose-up
-	docker-compose -f $(YML) exec -T $(APP) make clean
+	docker compose -f $(YML) exec -T $(APP) make clean
 
 .PHONY: docker-compose-make-watch
 docker-compose-make-watch: docker-compose-up
-	docker-compose -f $(YML) exec -T $(APP) make watch
+	docker compose -f $(YML) exec -T $(APP) make watch
